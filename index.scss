@@ -1,0 +1,9 @@
+@mixin flex-prop($prop, $bp1, $val1, $bp2, $val2) {
+  $val: $val1 - $val2;
+  $bp: $bp1 - $bp2;
+  #{$prop}: calc(#{$val1}px + (#{$val}*100/#{$bp})*1vw - (#{$bp1}px * #{$val}/#{$bp}));
+
+  @media all and (max-width: #{$bp2}px) {
+    #{$prop}: #{$val2}px;
+  }
+}
